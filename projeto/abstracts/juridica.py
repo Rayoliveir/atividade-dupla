@@ -1,3 +1,4 @@
+from projeto.abstracts.pessoa import Pessoa
 import os
 os.system("cls || clear")
 
