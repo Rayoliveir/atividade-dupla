@@ -1,12 +1,13 @@
-from projeto.abstracts.juridica import Juridica
-import os
-os.system("cls || clear")
+from models.abstracts.juridica import PessoaJuridica
 
-class Fornecedor(Juridica):
-    def __init__(self, cnpj: str, incricaoEstadual: str) -> None:
-        super().__init__(cnpj, incricaoEstadual)
+
+class Fornecedor:
+    def __init__(self, nomeProduto: str, dadosJuridico: PessoaJuridica) -> None:
+        self.produto = nomeProduto
+        self.dadosJuridicos = dadosJuridico
 
     def __str__(self) -> str:
         return (
-                f"{super().__str__()}"
-                f"Produto: {self.produto}"        
+            f"{self.dadosJuridicos}"
+            f"\nNome do produto: {self.produto}"
+        )

@@ -1,23 +1,21 @@
-from projeto.models.enums.unidadeFederativa import UnidadeFederativa
+from models.enums.unidadeFederativa import UnidadeFederativa
 
-import os
-os.system("cls || clear")
 
 class Endereco:
-    def __init__(self, logradouro: str, numero: str, complemento: str, cep: str, cidade: str, uf: UnidadeFederativa) -> None:
-        self.logradouro = logradouro
+    def __init__(self, longradouro: str, numero: str, complemento: str, cep: str, cidade: str, uf: UnidadeFederativa) -> None:
+        self.longradouro = longradouro
         self.numero = numero
         self.complemento = complemento
         self.cep = cep
         self.cidade = cidade
-        self.uf = UnidadeFederativa 
+        self.uf = uf
 
     def __str__(self) -> str:
-        return(
-            f"\nLogradouro: {self.logradouro}"
+        return (
+            f"\nLongradouro: {self.longradouro}"
             f"\nNúmero: {self.numero}"
-            f"f\nComplemento: {self.complemento}"
-            f"\nCEP: {self.cep}"
+            f"\nComplemento: {self.complemento}"
             f"\nCidade: {self.cidade}"
-            f"\nUF: {self.uf}"
+            f"\nCEP: {self.cep}"
+            f"\nUnidade Federativa: {self.uf}"
         )

@@ -1,6 +1,6 @@
 from enum import Enum
 
-class Setor:
+class Setor(Enum):
     ENGENHARIA = "Engenharia"
     SAUDE = "Saúde"
     JURIDICO = "Júridico"
