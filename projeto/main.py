@@ -1,6 +1,6 @@
 import os
 
-# Importaçoes para Advogado
+# Importaçoes
 from models.abstracts.fisica import PessoaFisica
 from models.abstracts.funcionario import Funcionario
 from models.abstracts.pessoa import DadosPessoa
