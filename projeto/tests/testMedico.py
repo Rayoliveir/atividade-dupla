@@ -1,12 +1,12 @@
-from projeto.models.abstracts.fisica import PessoaFisica
-from projeto.models.abstracts.funcionario import Funcionario
-from projeto.models.abstracts.pessoa import DadosPessoa
-from projeto.models.endereco import Endereco
-from projeto.models.enums.estadoCivil import EstadoCivil
-from projeto.models.enums.genero import Genero
-from projeto.models.enums.setor import Setor
-from projeto.models.enums.unidadeFederativa import UnidadeFederativa
-from projeto.models.medico import Medico
+from models.abstracts.fisica import PessoaFisica
+from models.abstracts.funcionario import Funcionario
+from models.abstracts.pessoa import DadosPessoa
+from models.endereco import Endereco
+from models.enums.estadoCivil import EstadoCivil
+from models.enums.genero import Genero
+from models.enums.setor import Setor
+from models.enums.unidadeFederativa import UnidadeFederativa
+from models.medico import Medico
 
 
 def validar_medico():

@@ -1,16 +1,17 @@
 from abc import ABC
 
 from models.abstracts.pessoa import DadosPessoa
+from models.endereco import Endereco
 
-class PessoaJuridica(ABC):
-    def __init__(self, cnpj: str, inscricaoEstadual: str, dadosPessoa: DadosPessoa) -> None:
+class PessoaJuridica(DadosPessoa, ABC):
+    def __init__(self, id: int, nome: str, telefone: str, email: str, endereco: Endereco, cnpj: str, inscricaoEstadual: str,) -> None:
+        super().__init__(id, nome, telefone, email, endereco)
         self.cnpj = cnpj
         self.inscricaoEstadual = inscricaoEstadual
-        self.dadosPessoa = dadosPessoa
 
     def __str__(self) -> str:
         return (
-            f"{self.dadosPessoa}"
+            f"{super().__str__()}"
             f"\nCNPJ: {self.cnpj}"
             f"\nInscrição Estadual: {self.inscricaoEstadual}"
         )

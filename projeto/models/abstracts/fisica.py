@@ -1,20 +1,21 @@
 from abc import ABC
 
 from models.abstracts.pessoa import DadosPessoa
+from models.endereco import Endereco
 from models.enums.estadoCivil import EstadoCivil
 from models.enums.genero import Genero
 
-class PessoaFisica(ABC):
-    def __init__(self, sexo: Genero, estadoCivil: EstadoCivil, dataNascimento: str, dadosPessoa: DadosPessoa) -> None:
+
+class PessoaFisica(DadosPessoa, ABC):
+    def __init__(self, id: int, nome: str, telefone: str, email: str, endereco: Endereco, sexo: Genero, estadoCivil: EstadoCivil, dataNascimento: str) -> None:
+        super().__init__(id, nome, telefone, email, endereco)
         self.sexo = sexo
         self.estadoCivil = estadoCivil
         self.dataNascimento = dataNascimento
-        self.dadosPessoa = dadosPessoa
-
-
+        
     def __str__(self) -> str:
         return (
-            f"{self.dadosPessoa}"
+            f"{super().__str__()}"
             f"\nSexo: {self.sexo}"
             f"\nEstado civil: {self.estadoCivil}"
             f"\nData de nascimento: {self.dataNascimento}"

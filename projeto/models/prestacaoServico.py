@@ -1,15 +1,25 @@
 from models.abstracts.juridica import PessoaJuridica
+from models.endereco import Endereco
 
 
-class PrestacaoServico:
-    def __init__(self, contratoInicio: str, contratoFim: str, dadosJuridico: PessoaJuridica) -> None:
+class PrestacaoServico(PessoaJuridica):
+    def __init__(self, contratoInicio: str, contratoFim: str, id: int, nome: str, telefone: str, email: str, endereco: Endereco, cnpj: str, inscricaoEstadual: str) -> None:
+        super().__init__(id, nome, telefone, email, endereco, cnpj, inscricaoEstadual)
         self.contratoInicio = contratoInicio
         self.contratoFim = contratoFim
-        self.dadosJuridico = dadosJuridico
 
     def __str__(self) -> str:
-            return(
-                f"{self.dadosJuridico}"
-                f"\nInicio do contrato: {self.contratoInicio}"
-                f"\nFim doontrato: {self.contratoFim}"
-                    )
+        return (
+            f"{super().__str__()}"
+            f"\nInicio do contrato: {self.contratoInicio}"
+            f"\nFim do contrato: {self.contratoFim}"
+            )
+
+
+    # def __init__(self, contratoInicio: str, contratoFim: str, dadosJuridico: PessoaJuridica) -> None:
+    #     self.dadosJuridico = dadosJuridico
+
+    # def __str__(self) -> str:
+    #         return(
+    #         f"{self.dadosJuridico}"
+    #                 )

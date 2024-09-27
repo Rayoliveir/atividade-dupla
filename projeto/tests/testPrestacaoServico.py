@@ -1,8 +1,8 @@
-from projeto.models.abstracts.juridica import PessoaJuridica
-from projeto.models.abstracts.pessoa import DadosPessoa
-from projeto.models.endereco import Endereco
-from projeto.models.enums.unidadeFederativa import UnidadeFederativa
-from projeto.models.prestacaoServico import PrestacaoServico
+from models.abstracts.juridica import PessoaJuridica
+from models.abstracts.pessoa import DadosPessoa
+from models.endereco import Endereco
+from models.enums.unidadeFederativa import UnidadeFederativa
+from models.prestacaoServico import PrestacaoServico
 
 
 def validar_prestacao_servico():

@@ -1,13 +1,24 @@
 from models.abstracts.juridica import PessoaJuridica
+from models.endereco import Endereco
 
 
-class Fornecedor:
-    def __init__(self, nomeProduto: str, dadosJuridico: PessoaJuridica) -> None:
+class Fornecedor(PessoaJuridica):
+    def __init__(self, nomeProduto: str, id: int, nome: str, telefone: str, email: str, endereco: Endereco, cnpj: str, inscricaoEstadual: str) -> None:
+        super().__init__(id, nome, telefone, email, endereco, cnpj, inscricaoEstadual)
         self.produto = nomeProduto
-        self.dadosJuridicos = dadosJuridico
+
 
     def __str__(self) -> str:
         return (
-            f"{self.dadosJuridicos}"
+            f"{super().__str__()}"
             f"\nNome do produto: {self.produto}"
-        )
+            )
+
+
+    # def __init__(self, nomeProduto: str, dadosJuridico: PessoaJuridica) -> None:
+    #     self.dadosJuridicos = dadosJuridico
+
+    # def __str__(self) -> str:
+    #     return (
+    #         f"{self.dadosJuridicos}"
+    #     )
