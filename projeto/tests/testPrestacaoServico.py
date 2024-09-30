@@ -9,46 +9,46 @@ from projeto.models.prestacaoServico import PrestacaoServico
 
 @pytest.fixture
 def prestacao_servico_valida():
-        return PrestacaoServico(18, "José Tigrão", "9899-9999", "bondedotigrão@gmail.com",
-                    Endereco("alameda", "123", "ali na esquina", "40.000-000", "salvador", UnidadeFederativa.BAHIA),
-                    "68.582.878/0001-16","5277216-46","01/09/23","01/09/24")
+        return PrestacaoServico(18, "Nome", "Telefone", "Email",
+                    Endereco("Longradouro", "Numero", "Complemento", "cep", "Cidade", UnidadeFederativa.BAHIA),
+                    "cnpj","inscriçao estadual","01/09/23","01/09/24")
 
 #validando atributos
 def test_id_valido(prestacao_servico_valida):
     assert prestacao_servico_valida.id == 18
 
 def test_nome_valido(prestacao_servico_valida):
-    assert prestacao_servico_valida.nome == "José Tigrão"
+    assert prestacao_servico_valida.nome == "Nome"
 
 def test_telefone_valido(prestacao_servico_valida):
-    assert prestacao_servico_valida.telefone == "9899-9999"
+    assert prestacao_servico_valida.telefone == "Telefone"
 
 def test_email_valido(prestacao_servico_valida):
-    assert prestacao_servico_valida.email == "bondedotigrão@gmail.com"
+    assert prestacao_servico_valida.email == "Email"
 
 def test_logradouro_valido(prestacao_servico_valida):
-    assert prestacao_servico_valida.endereco.logradouro == "alameda"
+    assert prestacao_servico_valida.endereco.logradouro == "Longradouro"
 
 def test_numero_valido(prestacao_servico_valida):
-    assert prestacao_servico_valida.endereco.numero == "123"
+    assert prestacao_servico_valida.endereco.numero == "Numero"
 
 def test_complemento_valido(prestacao_servico_valida):
-    assert prestacao_servico_valida.endereco.complemento == "ali na esquina"
+    assert prestacao_servico_valida.endereco.complemento == "Complemento"
 
 def test_cep_valido(prestacao_servico_valida):
-    assert prestacao_servico_valida.endereco.cep == "40.000-000"
+    assert prestacao_servico_valida.endereco.cep == "cep"
 
 def test_cidade_valido(prestacao_servico_valida):
-    assert prestacao_servico_valida.endereco.cidade == "salvador"
+    assert prestacao_servico_valida.endereco.cidade == "Cidade"
 
 def test_uf_valido(prestacao_servico_valida):
     assert prestacao_servico_valida.endereco.uf == UnidadeFederativa.BAHIA
 
 def test_cnpj_valido(prestacao_servico_valida):
-    assert prestacao_servico_valida.cnpj == "68.582.878/0001-16"
+    assert prestacao_servico_valida.cnpj == "cnpj"
 
 def test_inscricao_estadual_valida(prestacao_servico_valida):
-    assert prestacao_servico_valida.inscricaoEstadual == "5277216-46"
+    assert prestacao_servico_valida.inscricaoEstadual == "inscriçao estadual"
 
 def test_inicio_contrato_valido(prestacao_servico_valida):
     assert prestacao_servico_valida.contratoInicio == "01/09/23"
@@ -59,24 +59,24 @@ def test_fim_contrato_valido(prestacao_servico_valida):
 #testando exceções
 def test_id_tipo_errado(prestacao_servico_valida):
     with pytest.raises(TypeError, match = "valor inválido"):
-        PrestacaoServico("f", "José Tigrão", "9899-9999", "bondedotigrao@gmail.com",
-                    Endereco("alameda", "123", "ali na esquina", "40.000-000", "salvador", UnidadeFederativa.BAHIA),
-                    "68.582.878/0001-16","5277216-46","01/09/23","01/09/24")
+        PrestacaoServico("f", "Nome", "Telefone", "Email",
+                    Endereco("Longradouro", "Numero", "Complemento", "cep", "Cidade", UnidadeFederativa.BAHIA),
+                    "cnpj","inscriçao estadual","01/09/23","01/09/24")
 
 def test_id_valor_negativo(prestacao_servico_valida):
     with pytest.raises(ValueError, match = "valor inválido"):
-        PrestacaoServico(-18, "José Tigrão", "9899-9999", "bondedotigrao@gmail.com",
-                    Endereco("alameda", "123", "ali na esquina", "40.000-000", "salvador", UnidadeFederativa.BAHIA),
-                    "68.582.878/0001-16","5277216-46","01/09/23","01/09/24")
+        PrestacaoServico(-18, "Nome", "Telefone", "Email",
+                    Endereco("Longradouro", "Numero", "Complemento", "cep", "Cidade", UnidadeFederativa.BAHIA),
+                    "cnpj","inscriçao estadual","01/09/23","01/09/24")
 
 def test_nome_vazio(prestacao_servico_valida):
     with pytest.raises(ValueError, match = "o nome não pode estar em branco"):
-        PrestacaoServico(18, "", "9899-9999", "bondedotigrao@gmail.com",
-                    Endereco("alameda", "123", "ali na esquina", "40.000-000", "salvador", UnidadeFederativa.BAHIA),
-                    "68.582.878/0001-16","5277216-46","01/09/23","01/09/24")
+        PrestacaoServico(18, "", "Telefone", "Email",
+                    Endereco("Longradouro", "Numero", "Complemento", "cep", "Cidade", UnidadeFederativa.BAHIA),
+                    "cnpj","inscriçao estadual","01/09/23","01/09/24")
 
 def test_cep_invalido(prestacao_servico_valida):
     with pytest.raises(match = "CEP inválido"):
-        PrestacaoServico(18, "José Tigrão", "9899-9999", "bondedotigrao@gmail.com",
-                    Endereco("alameda", "123", "ali na esquina", "40.000-0000", "salvador", UnidadeFederativa.BAHIA),
-                    "68.582.878/0001-16","5277216-46","01/09/23","01/09/24")
+        PrestacaoServico(18, "Nome", "Telefone", "Email",
+                    Endereco("Longradouro", "Numero", "Complemento", "cep0", "Cidade", UnidadeFederativa.BAHIA),
+                    "cnpj","inscriçao estadual","01/09/23","01/09/24")
