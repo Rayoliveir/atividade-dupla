@@ -1,18 +1,134 @@
-from models.abstracts.fisica import PessoaFisica
-from models.abstracts.funcionario import Funcionario
-from models.abstracts.pessoa import DadosPessoa
-from models.endereco import Endereco
-from models.enums.estadoCivil import EstadoCivil
-from models.enums.genero import Genero
-from models.enums.setor import Setor
-from models.enums.unidadeFederativa import UnidadeFederativa
-from models.medico import Medico
+import pytest
+
+from projeto.models.endereco import Endereco
+from projeto.models.endereco import Endereco
+from projeto.models.enums.estadoCivil import EstadoCivil
+from projeto.models.enums.genero import Genero
+from projeto.models.enums.setor import Setor
+from projeto.models.enums.unidadeFederativa import UnidadeFederativa
+from projeto.models.medico import Medico
 
 
-def validar_medico():
-    return Medico("crm", 
-            Funcionario("123.456.789-00", "12.345.678-00", "3333", Setor.SAUDE, 3000.00, 
-            PessoaFisica(Genero.MASCULINO, EstadoCivil.CASADO, "DD/MM/AAAA",
-            DadosPessoa(333, "Josue Reis", "7199999-9999", "josue@gmail.com", 
-            Endereco("Rua D. Pedro II", "98", "Centro", "47.400-000", "Xique-xique", 
-            UnidadeFederativa.BAHIA)))))
+@pytest.fixture
+
+def medico_valido():
+    return Medico(18, "José Tigrão", "9899-9999", "bondedotigrão@gmail.com",
+                    Endereco("alameda", "123", "ali na esquina", "40.000-000", "salvador", UnidadeFederativa.BAHIA),
+                    Genero.MASCULINO,EstadoCivil.CASADO,
+                    "24/09/1999","825.863.350-31","27.795.968-8","007",Setor.SAUDE,7000.0,"BA2135712357")
+
+#validando atributos
+
+def test_id_valido(medico_valido):
+    assert medico_valido.id == 18
+
+def test_nome_valido(medico_valido):
+    assert medico_valido.nome == "José Tigrão"
+
+def test_telefone_valido(medico_valido):
+    assert medico_valido.telefone == "9899-9999"
+
+def test_email_valido(medico_valido):
+    assert medico_valido.email == "bondedotigrão@gmail.com"
+
+def test_logradouro_valido(medico_valido):
+    assert medico_valido.endereco.logradouro == "alameda"
+
+def test_numero_valido(medico_valido):
+    assert medico_valido.endereco.numero == "123"
+
+def test_complemento_valido(medico_valido):
+    assert medico_valido.endereco.complemento == "ali na esquina"
+
+def test_cep_valido(medico_valido):
+    assert medico_valido.endereco.cep == "40.000-000"
+
+def test_cidade_valido(medico_valido):
+    assert medico_valido.endereco.cidade == "salvador"
+
+def test_uf_valido(medico_valido):
+    assert medico_valido.endereco.uf == UnidadeFederativa.BAHIA
+
+def test_genero_valido(medico_valido):
+    assert medico_valido.sexo == Genero.MASCULINO
+
+def test_estado_civil_valido(medico_valido):
+    assert medico_valido.estadoCivil == EstadoCivil.CASADO
+
+def test_data_nascimento_valido(medico_valido):
+    assert medico_valido.dataNascimento == "24/09/1999"
+
+def test_cpf_valido(medico_valido):
+    assert medico_valido.cpf == "825.863.350-31"
+
+def test_rg_valido(medico_valido):
+    assert medico_valido.rg == "27.795.968-8"
+
+def test_matricula_valido(medico_valido):
+    assert medico_valido.matricula == "007"
+
+def test_setor_valido(medico_valido):
+    assert medico_valido.setor == Setor.SAUDE
+
+def test_salario_valido(medico_valido):
+    assert medico_valido.salario == 7000.0
+
+def test_crea_valido(medico_valido):
+    assert medico_valido.crm == "BA2135712357"
+
+#testando exceções
+def test_id_tipo_errado(medico_valido):
+    with pytest.raises(TypeError, match = "valor inválido"):
+        Medico("f", "José Tigrão", "9899-9999", "bondedotigrao@gmail.com",
+                    Endereco("alameda", "123", "ali na esquina", "40.000-000", "salvador", UnidadeFederativa.BAHIA),
+                    Genero.MASCULINO,EstadoCivil.CASADO,
+                    "24/09/1999", "825.863.350-31", "27.795.968-8", "007", Setor.ENGENHARIA, 7000.0,"32575756")
+
+def test_id_valor_negativo(medico_valido):
+    with pytest.raises(ValueError, match = "valor inválido"):
+        Medico(-18, "José Tigrão", "9899-9999", "bondedotigrao@gmail.com",
+                    Endereco("alameda", "123", "ali na esquina", "40.000-000", "salvador", UnidadeFederativa.BAHIA),
+                    Genero.MASCULINO,EstadoCivil.CASADO,
+                    "24/09/1999", "825.863.350-31", "27.795.968-8", "007", Setor.ENGENHARIA, 7000.0,"32575756")
+
+def test_nome_vazio(medico_valido):
+    with pytest.raises(ValueError, match = "o nome não pode estar em branco"):
+        Medico(18, "", "9899-9999", "bondedotigrao@gmail.com",
+                    Endereco("alameda", "123", "ali na esquina", "40.000-000", "salvador", UnidadeFederativa.BAHIA),
+                    Genero.MASCULINO,EstadoCivil.CASADO,
+                    "24/09/1999", "825.863.350-31", "27.795.968-8", "007", Setor.ENGENHARIA, 7000.0,"32575756")
+
+def test_salario_tipo_errado(medico_valido):
+    with pytest.raises(TypeError, match = "dado incorreto"):
+        Medico(18, "José Tigrão", "9899-9999", "bondedotigrao@gmail.com",
+                    Endereco("alameda", "123", "ali na esquina", "40.000-000", "salvador", UnidadeFederativa.BAHIA),
+                    Genero.MASCULINO,EstadoCivil.CASADO,
+                    "24/09/1999", "825.863.350-31", "27.795.968-8", "007", Setor.ENGENHARIA, "7000.0","32575756")
+
+def test_salario_negativo(medico_valido):
+    with pytest.raises(ValueError, match = "salário não pode ser negativo"):
+        Medico(18, "José Tigrão", "9899-9999", "bondedotigrao@gmail.com",
+                    Endereco("alameda", "123", "ali na esquina", "40.000-000", "salvador", UnidadeFederativa.BAHIA),
+                    Genero.MASCULINO,EstadoCivil.CASADO,
+                    "24/09/1999", "825.863.350-31", "27.795.968-8", "007", Setor.ENGENHARIA, -7000.0,"32575756")
+
+def test_cep_invalido(medico_valido):
+    with pytest.raises(match = "CEP inválido"):
+        Medico(18, "José Tigrão", "9899-9999", "bondedotigrao@gmail.com",
+                    Endereco("alameda", "123", "ali na esquina", "40.000-0000", "salvador", UnidadeFederativa.BAHIA),
+                    Genero.MASCULINO,EstadoCivil.CASADO,
+                    "24/09/1999", "825.863.350-31", "27.795.968-8", "007", Setor.ENGENHARIA, 7000.0,"32575756")
+        
+def test_rg_invalido(medico_valido):
+    with pytest.raises(match = "RG inválido"):
+        Medico(18, "José Tigrão", "9899-9999", "bondedotigrao@gmail.com",
+                    Endereco("alameda", "123", "ali na esquina", "40.000-000", "salvador", UnidadeFederativa.BAHIA),
+                    Genero.MASCULINO,EstadoCivil.CASADO,
+                    "24/09/1999", "825.863.350-31", "27.795.968-80", "007", Setor.ENGENHARIA, 7000.0,"32575756")
+
+def test_cpf_invalido(medico_valido):
+    with pytest.raises(match = "CPF inválido"):
+        Medico(18, "José Tigrão", "9899-9999", "bondedotigrao@gmail.com",
+                    Endereco("alameda", "123", "ali na esquina", "40.000-000", "salvador", UnidadeFederativa.BAHIA),
+                    Genero.MASCULINO,EstadoCivil.CASADO,
+                    "24/09/1999", "825.863.350-310", "27.795.968-8", "007", Setor.ENGENHARIA, 7000.0,"32575756")

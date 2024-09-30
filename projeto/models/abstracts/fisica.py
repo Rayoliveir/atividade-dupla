@@ -1,13 +1,17 @@
-from abc import ABC
+from abc import ABC, abstractmethod
 
-from models.abstracts.pessoa import DadosPessoa
-from models.endereco import Endereco
-from models.enums.estadoCivil import EstadoCivil
-from models.enums.genero import Genero
+from projeto.models.abstracts.pessoa import DadosPessoa
+from projeto.models.endereco import Endereco
+from projeto.models.enums.estadoCivil import EstadoCivil
+from projeto.models.enums.genero import Genero
+
+
 
 
 class PessoaFisica(DadosPessoa, ABC):
-    def __init__(self, id: int, nome: str, telefone: str, email: str, endereco: Endereco, sexo: Genero, estadoCivil: EstadoCivil, dataNascimento: str) -> None:
+    @abstractmethod
+    def __init__(self, id: int, nome: str, telefone: str, email: str, endereco: Endereco, sexo: 
+        Genero, estadoCivil: EstadoCivil, dataNascimento: str) -> None:
         super().__init__(id, nome, telefone, email, endereco)
         self.sexo = sexo
         self.estadoCivil = estadoCivil

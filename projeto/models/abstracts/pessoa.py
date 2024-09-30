@@ -1,15 +1,38 @@
-from abc import ABC
+from abc import ABC, abstractmethod
 
 from models.endereco import Endereco
 
 
 class DadosPessoa(ABC):
+    @abstractmethod
     def __init__(self, id: int, nome: str, telefone: str,  email: str, endereco: Endereco) -> None:
         self.id = id
         self.nome = nome
         self.telefone = telefone
         self.email = email
         self.endereco = endereco
+
+    def _verificar_tipo_id(self, id):
+            if not isinstance(id, int):
+                raise TypeError("Digite apenas números para o ID")
+            if id < 0:
+                raise ValueError("Digite apenas números positivos para o ID")
+            return id
+
+    def _verificar_nome_vazio(self, nome):
+            if not isinstance(nome, str) or not nome.strip():
+                raise ValueError("O nome não pode estar em branco")
+            return nome
+    
+    def _verificar_tipo_telefone(self, telefone):
+        if not isinstance (telefone, str):
+            raise TypeError("Digite apenas números.")
+        return telefone
+    
+    def _verificar_email_vazio(self, email):
+            if not isinstance(email, str) or not email.strip():
+                raise TypeError("Email não pode estar vazio.")
+            return email
 
     def __str__(self) -> str:
         return (

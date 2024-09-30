@@ -14,12 +14,3 @@ class PrestacaoServico(PessoaJuridica):
             f"\nInicio do contrato: {self.contratoInicio}"
             f"\nFim do contrato: {self.contratoFim}"
             )
-
-
-    # def __init__(self, contratoInicio: str, contratoFim: str, dadosJuridico: PessoaJuridica) -> None:
-    #     self.dadosJuridico = dadosJuridico
-
-    # def __str__(self) -> str:
-    #         return(
-    #         f"{self.dadosJuridico}"
-    #                 )
