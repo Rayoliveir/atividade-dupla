@@ -7,11 +7,11 @@ from projeto.models.endereco import Endereco
 class DadosPessoa(ABC):
     @abstractmethod
     def __init__(self, id: int, nome: str, telefone: str,  email: str, endereco: Endereco) -> None:
-        self.id = id
-        self.nome = nome
-        self.telefone = telefone
-        self.email = email
-        self.endereco = endereco
+        self.id = self._verificar_tipo_id(id)
+        self.nome = self._verificar_nome_vazio(nome)
+        self.telefone = self._verificar_tipo_telefone(telefone)
+        self.email = self._verificar_email_vazio(email)
+        self.endereco = endereco 
 
     def _verificar_tipo_id(self, id):
             if not isinstance(id, int):

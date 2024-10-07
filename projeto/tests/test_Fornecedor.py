@@ -1,8 +1,8 @@
 import pytest
 
-from models.endereco import Endereco
-from models.fornecedor import Fornecedor
-from models.enums.unidadeFederativa import UnidadeFederativa
+from projeto.models.endereco import Endereco
+from projeto.models.fornecedor import Fornecedor
+from projeto.models.enums.unidadeFederativa import UnidadeFederativa
 
 
 

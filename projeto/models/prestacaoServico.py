@@ -1,5 +1,5 @@
-from models.abstracts.juridica import PessoaJuridica
-from models.endereco import Endereco
+from projeto.models.juridica import PessoaJuridica
+from projeto.models.endereco import Endereco
 
 
 class PrestacaoServico(PessoaJuridica):

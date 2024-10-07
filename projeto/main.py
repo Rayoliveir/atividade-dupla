@@ -7,7 +7,7 @@ from projeto.models.medico import Medico
 from models.enums.estadoCivil import EstadoCivil
 from models.enums.genero import Genero
 from models.enums.setor import Setor
-from models.abstracts.pessoa import DadosPessoa
+from projeto.models.pessoa import DadosPessoa
 
 os.system("cls || clear")
 

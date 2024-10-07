@@ -1,9 +1,9 @@
 from abc import ABC, abstractmethod
 
-from models.abstracts.pessoa import DadosPessoa
+from projeto.models.pessoa import DadosPessoa
 from projeto.models.endereco import Endereco
-from models.enums.estadoCivil import EstadoCivil
-from models.enums.genero import Genero
+from projeto.models.enums.estadoCivil import EstadoCivil
+from projeto.models.enums.genero import Genero
 
 class PessoaFisica(DadosPessoa, ABC):
     @abstractmethod
