@@ -1,9 +1,9 @@
 import pytest
 
-from projeto.models.endereco import Endereco
-from projeto.models.endereco import Endereco
-from projeto.models.enums.unidadeFederativa import UnidadeFederativa
-from projeto.models.prestacaoServico import PrestacaoServico
+from models.classe.endereco import Endereco
+from models.classe.prestacaoServico import PrestacaoServico
+from models.enums.unidadeFederativa import UnidadeFederativa
+
 
 
 

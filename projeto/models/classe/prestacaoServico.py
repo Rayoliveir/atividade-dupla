@@ -1,5 +1,5 @@
 from models.abstracts.juridica import PessoaJuridica
-from models.endereco import Endereco
+from models.classe.endereco import Endereco
 
 
 class PrestacaoServico(PessoaJuridica):
@@ -9,8 +9,11 @@ class PrestacaoServico(PessoaJuridica):
         self.contratoFim = contratoFim
 
     def __str__(self) -> str:
+        return super().__str__()
+    
+    def __str__(self) -> str:
         return (
-            f"{super().__str__()}"
+            # f"{super().__str__()}"
             f"\nInicio do contrato: {self.contratoInicio}"
             f"\nFim do contrato: {self.contratoFim}"
             )

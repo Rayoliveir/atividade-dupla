@@ -1,8 +1,8 @@
-from projeto.models.abstracts.funcionario import Funcionario
-from projeto.models.abstracts.pessoa import DadosPessoa
-from projeto.models.enums.estadoCivil import EstadoCivil
-from projeto.models.enums.genero import Genero
-from projeto.models.enums.setor import Setor
+from models.abstracts.funcionario import Funcionario
+from models.abstracts.pessoa import DadosPessoa
+from models.enums.estadoCivil import EstadoCivil
+from models.enums.genero import Genero
+from models.enums.setor import Setor
 
 
 class Engenheiro(Funcionario):
@@ -17,12 +17,3 @@ class Engenheiro(Funcionario):
             f"{super().__str__()}"
             f"\nCREA: {self.crea}"
             )
-  
-  
-    # def __init__(self, crea: str, dadosFuncionario: Funcionario) -> None:
-    #     self.dadosFuncionario = dadosFuncionario
-
-    # def __str__(self) -> str:
-    #     return (
-    #         f"{self.dadosFuncionario}"
-    #     )

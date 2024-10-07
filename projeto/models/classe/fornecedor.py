@@ -1,5 +1,5 @@
 from models.abstracts.juridica import PessoaJuridica
-from models.endereco import Endereco
+from models.classe.endereco import Endereco
 
 
 class Fornecedor(PessoaJuridica):
@@ -13,12 +13,3 @@ class Fornecedor(PessoaJuridica):
             f"{super().__str__()}"
             f"\nNome do produto: {self.produto}"
             )
-
-
-    # def __init__(self, nomeProduto: str, dadosJuridico: PessoaJuridica) -> None:
-    #     self.dadosJuridicos = dadosJuridico
-
-    # def __str__(self) -> str:
-    #     return (
-    #         f"{self.dadosJuridicos}"
-    #     )

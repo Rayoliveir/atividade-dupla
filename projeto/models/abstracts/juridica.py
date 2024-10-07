@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 
 from models.abstracts.pessoa import DadosPessoa
-from models.endereco import Endereco
+from models.classe.endereco import Endereco
 
 class PessoaJuridica(DadosPessoa, ABC):
     @abstractmethod
@@ -15,10 +15,11 @@ class PessoaJuridica(DadosPessoa, ABC):
                 raise TypeError("CNPJ inválido.")
             return CNPJ
 
+    def __str__(self) -> str:
+         return super().__str__()
 
     def __str__(self) -> str:
         return (
-            f"{super().__str__()}"
             f"\nCNPJ: {self.cnpj}"
             f"\nInscrição Estadual: {self.inscricaoEstadual}"
         )

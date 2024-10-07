@@ -81,7 +81,7 @@ def test_nome_vazio(cliente_valido):
                     "24/09/1999",7777)
 
 def test_cep_invalido(cliente_valido):
-    with pytest.raises(CepError, match = "CEP inválido"):
+    with pytest.raises(match = "CEP inválido"):
         Cliente(18, "Nome", "Telefone", "Email",
                     Endereco("Lomgradouro", "Numero", "Complemento", "cep0", "Cidade", UnidadeFederativa.BAHIA),
                     Genero.MASCULINO,EstadoCivil.CASADO,

@@ -1,6 +1,7 @@
 from abc import ABC, abstractmethod
 
-from models.endereco import Endereco
+from models.classe.endereco import Endereco
+
 
 
 class DadosPessoa(ABC):

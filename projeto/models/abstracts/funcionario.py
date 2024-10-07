@@ -1,12 +1,10 @@
 from abc import ABC, abstractmethod
 
-from projeto.models.abstracts.fisica import PessoaFisica
-from projeto.models.abstracts.pessoa import DadosPessoa
-from projeto.models.enums.estadoCivil import EstadoCivil
-from projeto.models.enums.genero import Genero
-from projeto.models.enums.setor import Setor
-
-
+from models.abstracts.fisica import PessoaFisica
+from models.abstracts.pessoa import DadosPessoa
+from models.enums.estadoCivil import EstadoCivil
+from models.enums.genero import Genero
+from models.enums.setor import Setor
 
 class Funcionario(PessoaFisica ,ABC):
     @abstractmethod
@@ -28,6 +26,9 @@ class Funcionario(PessoaFisica ,ABC):
             if len(RG) > 12:
                 raise TypeError("RG inválido")
             return RG
+    
+    def _verificar_salario(self, salario):
+        pass
 
     def __str__(self) -> str:
         return (
