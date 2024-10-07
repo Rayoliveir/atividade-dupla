@@ -1,11 +1,11 @@
 import pytest
 
-from projeto.models.classe.endereco import Endereco
-from projeto.models.classe.medico import Medico
-from projeto.models.enums.estadoCivil import EstadoCivil
-from projeto.models.enums.genero import Genero
-from projeto.models.enums.setor import Setor
-from projeto.models.enums.unidadeFederativa import UnidadeFederativa
+from models.endereco import Endereco
+from models.medico import Medico
+from models.enums.estadoCivil import EstadoCivil
+from models.enums.genero import Genero
+from models.enums.setor import Setor
+from models.enums.unidadeFederativa import UnidadeFederativa
 
 
 

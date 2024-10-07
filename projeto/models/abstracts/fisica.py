@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 
 from models.abstracts.pessoa import DadosPessoa
-from models.classe.endereco import Endereco
+from projeto.models.endereco import Endereco
 from models.enums.estadoCivil import EstadoCivil
 from models.enums.genero import Genero
 

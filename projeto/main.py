@@ -1,9 +1,9 @@
 import os
 
-from models.classe.endereco import Endereco
+from projeto.models.endereco import Endereco
 # from models.classe.prestacaoServico import PrestacaoServico
 from models.enums.unidadeFederativa import UnidadeFederativa
-from models.classe.medico import Medico
+from projeto.models.medico import Medico
 from models.enums.estadoCivil import EstadoCivil
 from models.enums.genero import Genero
 from models.enums.setor import Setor

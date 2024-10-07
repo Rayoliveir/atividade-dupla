@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 
 from models.abstracts.pessoa import DadosPessoa
-from models.classe.endereco import Endereco
+from projeto.models.endereco import Endereco
 
 class PessoaJuridica(DadosPessoa, ABC):
     @abstractmethod

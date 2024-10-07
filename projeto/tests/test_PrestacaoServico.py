@@ -1,7 +1,7 @@
 import pytest
 
-from models.classe.endereco import Endereco
-from models.classe.prestacaoServico import PrestacaoServico
+from models.endereco import Endereco
+from models.prestacaoServico import PrestacaoServico
 from models.enums.unidadeFederativa import UnidadeFederativa
 
 

@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-from models.classe.endereco import Endereco
+from projeto.models.endereco import Endereco
 
 
 
