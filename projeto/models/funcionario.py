@@ -1,13 +1,12 @@
 from abc import ABC, abstractmethod
 
-from projeto.models.fisica import PessoaFisica
-from projeto.models.pessoa import DadosPessoa
-from projeto.models.enums.estadoCivil import EstadoCivil
-from projeto.models.enums.genero import Genero
-from projeto.models.enums.setor import Setor
+from ..models.fisica import PessoaFisica
+from ..models.pessoa import DadosPessoa
+from ..models.enums.estadoCivil import EstadoCivil
+from ..models.enums.genero import Genero
+from ..models.enums.setor import Setor
 
 class Funcionario(PessoaFisica ,ABC):
-    @abstractmethod
     def __init__(self, sexo: Genero, estadoCivil: EstadoCivil, dataNascimento: str, dadosPessoa: 
                  DadosPessoa, cpf: str, rg: str, matricula: str, setor: Setor, salario: float) -> None:
         super().__init__(sexo, estadoCivil, dataNascimento, dadosPessoa)

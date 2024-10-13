@@ -1,13 +1,13 @@
 import pytest
 
 
-from projeto.models.enums.estadoCivil import EstadoCivil
-from projeto.models.enums.genero import Genero
-from projeto.models.enums.setor import Setor
-from projeto.models.enums.unidadeFederativa import UnidadeFederativa
-from projeto.models.cliente import Cliente
-from projeto.models.endereco import Endereco
-from projeto.models.pessoa import DadosPessoa
+from ..models.enums.estadoCivil import EstadoCivil
+from ..models.enums.genero import Genero
+from ..models.enums.setor import Setor
+from ..models.enums.unidadeFederativa import UnidadeFederativa
+from ..models.cliente import Cliente
+from ..models.endereco import Endereco
+from ..models.pessoa import DadosPessoa
 
 
 @pytest.fixture
@@ -50,7 +50,7 @@ def test_uf_valido(cliente_valido: Cliente):
     assert cliente_valido.endereco.uf == UnidadeFederativa.BAHIA
 
 def test_genero_valido(cliente_valido: Cliente):
-    assert cliente_valido.sexo == Genero.MASCULINO
+    assert cliente_valido.genero.sexo == Genero.MASCULINO
 
 def test_estado_civil_valido(cliente_valido: Cliente):
     assert cliente_valido.estadoCivil == EstadoCivil.CASADO
@@ -72,14 +72,14 @@ def test_id_tipo_errado(cliente_valido: Cliente):
 
 def test_id_valor_negativo(cliente_valido: Cliente):
     with pytest.raises(ValueError, match = "valor inválido"):
-        Cliente(18, "Nome", "Telefone", "Email",
+        Cliente(-18, "Nome", "Telefone", "Email",
                     Endereco("Lomgradouro", "Numero", "Complemento", "cep", "Cidade", UnidadeFederativa.BAHIA),
                     Genero.MASCULINO,EstadoCivil.CASADO,
                     "24/09/1999",7777)
 
 def test_nome_vazio(cliente_valido: Cliente):
     with pytest.raises(ValueError, match = "o nome não pode estar em branco"):
-        Cliente(18, "Nome", "Telefone", "Email",
+        Cliente(18, "", "Telefone", "Email",
                     Endereco("Lomgradouro", "Numero", "Complemento", "cep", "Cidade", UnidadeFederativa.BAHIA),
                     Genero.MASCULINO,EstadoCivil.CASADO,
                     "24/09/1999",7777)
@@ -87,6 +87,6 @@ def test_nome_vazio(cliente_valido: Cliente):
 def test_cep_invalido(cliente_valido: Cliente):
     with pytest.raises(match = "CEP inválido"):
         Cliente(18, "Nome", "Telefone", "Email",
-                    Endereco("Lomgradouro", "Numero", "Complemento", "cep", "Cidade", UnidadeFederativa.BAHIA),
+                    Endereco("Lomgradouro", "Numero", "Complemento", "cep7", "Cidade", UnidadeFederativa.BAHIA),
                     Genero.MASCULINO,EstadoCivil.CASADO,
                     "24/09/1999", 7777)

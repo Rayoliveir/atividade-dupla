@@ -1,10 +1,9 @@
 from abc import ABC, abstractmethod
 
-from projeto.models.pessoa import DadosPessoa
-from projeto.models.endereco import Endereco
+from ..models.pessoa import DadosPessoa
+from ..models.endereco import Endereco
 
 class PessoaJuridica(DadosPessoa, ABC):
-    @abstractmethod
     def __init__(self, id: int, nome: str, telefone: str, email: str, endereco: Endereco, cnpj: str, inscricaoEstadual: str,) -> None:
         super().__init__(id, nome, telefone, email, endereco)
         self.cnpj = self._verificar_tamanho_cnpj(cnpj)

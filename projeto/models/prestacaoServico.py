@@ -1,5 +1,5 @@
-from projeto.models.juridica import PessoaJuridica
-from projeto.models.endereco import Endereco
+from ..models.juridica import PessoaJuridica
+from ..models.endereco import Endereco
 
 
 class PrestacaoServico(PessoaJuridica):
@@ -13,7 +13,6 @@ class PrestacaoServico(PessoaJuridica):
     
     def __str__(self) -> str:
         return (
-            # f"{super().__str__()}"
             f"\nInicio do contrato: {self.contratoInicio}"
             f"\nFim do contrato: {self.contratoFim}"
             )

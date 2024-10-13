@@ -1,4 +1,4 @@
-from projeto.models.enums.unidadeFederativa import UnidadeFederativa
+from ..models.enums.unidadeFederativa import UnidadeFederativa
 
 
 class Endereco:

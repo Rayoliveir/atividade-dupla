@@ -1,5 +1,5 @@
-from projeto.models.juridica import PessoaJuridica
-from projeto.models.endereco import Endereco
+from ..models.juridica import PessoaJuridica
+from ..models.endereco import Endereco
 
 
 class Fornecedor(PessoaJuridica):

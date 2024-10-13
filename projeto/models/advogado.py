@@ -1,8 +1,8 @@
-from projeto.models.funcionario import Funcionario
-from projeto.models.pessoa import DadosPessoa
-from projeto.models.enums.estadoCivil import EstadoCivil
-from projeto.models.enums.genero import Genero
-from projeto.models.enums.setor import Setor
+from ..models.funcionario import Funcionario
+from ..models.pessoa import DadosPessoa
+from ..models.enums.estadoCivil import EstadoCivil
+from ..models.enums.genero import Genero
+from ..models.enums.setor import Setor
 
 
 class Advogado(Funcionario):

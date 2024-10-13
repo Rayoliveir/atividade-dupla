@@ -1,5 +1,5 @@
-from projeto.models.endereco import Endereco
-from projeto.models.pessoa import DadosPessoa
+from ..models.endereco import Endereco
+from ..models.pessoa import DadosPessoa
 
 
 class Cliente(DadosPessoa):

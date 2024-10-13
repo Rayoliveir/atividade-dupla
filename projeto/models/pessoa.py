@@ -1,11 +1,10 @@
 from abc import ABC, abstractmethod
 
-from projeto.models.endereco import Endereco
+from ..models.endereco import Endereco
 
 
 
 class DadosPessoa(ABC):
-    @abstractmethod
     def __init__(self, id: int, nome: str, telefone: str,  email: str, endereco: Endereco) -> None:
         self.id = self._verificar_tipo_id(id)
         self.nome = self._verificar_nome_vazio(nome)
